@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3 - Modificando imagens</title>
+</head>
+<body>
+
+    <style>
+body{
+display: flex;
+flex-direction: column;
+background-color: black;
+color: white;
+align-items: center;
+
+    }
+
+h1{
+margin: 20px;
+
+}
+
+button{
+margin: 20px;
+padding: 20px;
+border-radius: 25px;
+
+}
+
+img{
+border: solid white 5px;
+border-radius: 25px;
+max-width: 700px;
+max-height: 800px;
+
+}
+
+
+    </style>
+    
+<h1>Exemplo 3 - Modificando imagens</h1>
+
+<img src="img/img1.jpg" alt="Bannersexta13">
+<button onclick="trocar();">Trocar</button>
+
+
+
+<script>
+
+let modo = 0;
+
+function trocar(){
+
+    if (modo == 0){
+        let imagem =  document.getElementsByTagName("img")[0] ;
+        imagem.src = "img/img2.jpg";
+        modo =1;
+    }
+
+    else{
+        let imagem =  document.getElementsByTagName("img")[0] ;
+        imagem.src = "img/img1.jpg";
+        modo = 0;
+    }
+
+
+
+}
+
+
+
+</script>
+
+</body>
+</html>
