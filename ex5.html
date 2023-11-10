@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 13 - Mouse over/out</title>
+</head>
+
+<body>
+<style>
+
+div{
+background-color: brown;
+color: yellow;
+
+width: 300px;
+height: 300px;
+font-size: larger;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+}
+</style>
+
+    <section>
+    <h1>Ex 13 - Mouse over/out</h1>
+
+    <div onmouseover="over1(this);" onmouseout="over2(this);">flamengo</div>
+        
+    </section>
+    
+<script>
+function over1(obj){
+
+obj.innerHTML = "Campeão" ;
+
+
+
+}
+function over2(obj){
+
+obj.innerHTML = "Flamengo" ;
+
+
+
+}
+
+
+</script>
+
+</body>
+</html>
