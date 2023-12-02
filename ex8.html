@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ex 17</h1>
+
+    <section>
+<input type="text" id="nome">
+<input type="number" name="num" id="num">
+
+<input type="button" value="Clique" onclick="numero()">
+
+
+    </section>
+
+    <section>
+        <div>Lista de Números</div>
+        <div id="area"></div>
+
+    </section>
+
+    <script>
+function numero(){
+let nome = document.getElementById("nome");
+let numero = document.getElementById("num");
+let area = document.getElementById("area");
+
+area.innerHTML = area.innerHTML +"<br>"+ nome.value+" - "+numero.value;
+
+nome.value= "";
+numero.value = "";
+
+
+
+}
+
+
+    </script>
+</body>
+</html>

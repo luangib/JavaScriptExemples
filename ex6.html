@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemplo 15 - Validação</h1>
+
+    <section>
+    <input type="text" id="text">
+    <input type="button" value="Enviar" onclick="validar()">
+
+
+    </section>
+<script>
+function validar(){
+if(document.getElementById("text").value == ""){
+
+window.alert("Preencha o campo necessário")
+
+}
+
+else{
+window.alert("daldos enviados com sucesso");    
+document.getElementById("text").value = "";
+
+}
+
+}
+
+
+</script>
+
+
+</body>
+</html>

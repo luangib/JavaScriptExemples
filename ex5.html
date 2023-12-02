@@ -6,8 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    
+<h1>Exemplo 14</h1>    
+<label for="caixa">Adicionar botão</label>
+    <input onclick="adicionar();" id="caixa" type="checkbox"><br>
+    <button style="font-size: 20px;display: none;">Clique</button>
 
-    
+<script>
+function adicionar(){
+            const marcado = document.getElementById("caixa").checked;
+            console.log(marcado);
+            const botao = document.getElementsByTagName("button")[0];
+            botao.addEventListener("click",function(){
+                const divi = document.createElement("div");
+                const imagem = document.createElement("img"); 
+                imagem.src = "img/zapagiota.jpg";
+                divi.appendChild(imagem);
+                document.body.appendChild(divi);
+                const im = document.getElementsByTagName("img")[0];
+            im.addEventListener("click", function() {
+                divi.removeChild(im); 
+            });
+            });
+            
+            if(marcado)
+                botao.style.display = "inline";
+            else
+                botao.style.display = "none";
+        }
+
+
+
+
+</script>
+
 </body>
 </html>

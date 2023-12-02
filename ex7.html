@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Ex 17 </h1>
+<section>
+    <label for="num">Idade</label>
+    <input type="number" name="num" id="num">
+
+    <div id="area"></div>
+
+    <input type="button" value="Verifique idade" onclick="idade()">
+
+</section>
+    <script>
+
+function idade(){
+
+let idade = document.getElementById("num").value;
+if(idade> 18 && idade<70){
+    document.getElementById("area").innerHTML = "";
+document.getElementById("area").innerHTML = "Idade Válida";
+
+}
+
+
+else{
+document.getElementById("area").innerHTML = "";
+document.getElementById("area").innerHTML = "Idade Inválida";
+
+}
+
+}
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
