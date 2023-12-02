@@ -1,77 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 3 - Modificando imagens</title>
+    <title>Exemplo 4 - Alterar texto</title>
 </head>
+
 <body>
-
     <style>
-body{
-display: flex;
-flex-direction: column;
-background-color: black;
-color: white;
-align-items: center;
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
 
-    }
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
 
-h1{
-margin: 20px;
+        }
 
-}
-
-button{
-margin: 20px;
-padding: 20px;
-border-radius: 25px;
-
-}
-
-img{
-border: solid white 5px;
-border-radius: 25px;
-max-width: 700px;
-max-height: 800px;
-
-}
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(201, 190, 130);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
 
 
+        }
+
+        input {
+
+            margin: 10px;
+            border-radius: 10px;
+            padding: 5px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        h1 {
+
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }
+
+        div {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }
     </style>
-    
-<h1>Exemplo 3 - Modificando imagens</h1>
 
-<img src="img/img1.jpg" alt="Bannersexta13">
-<button onclick="trocar();">Trocar</button>
+    <section>
 
+        <h1>Exemplo 4 - Alterar texto</h1>
+        <div>Name: </div>
+        <input type="text" placeholder="digite nome" onchange="atualizartexto()" id="texto">
+        <div>Email:</div>
+        <input type="text" placeholder="digite email" onchange="atualizaremail()" id="email">
+        <button onclick="limpar()">Limpar</button>
+    </section>
+    <script>
 
+        function atualizartexto() {
 
-<script>
-
-let modo = 0;
-
-function trocar(){
-
-    if (modo == 0){
-        let imagem =  document.getElementsByTagName("img")[0] ;
-        imagem.src = "img/img2.jpg";
-        modo =1;
-    }
-
-    else{
-        let imagem =  document.getElementsByTagName("img")[0] ;
-        imagem.src = "img/img1.jpg";
-        modo = 0;
-    }
+            const texto = document.getElementById("texto");
+            texto.value = texto.value.toUpperCase();
 
 
+        }
 
-}
+        function atualizaremail() {
+
+            const email = document.getElementById("email");
+            email.value = email.value.toLowerCase();
 
 
 
-</script>
+        }
+
+        function limpar() {
+            const texto = document.getElementById("texto");
+            texto.value = "";
+
+        }
+
+
+    </script>
+
+
+
+
 
 </body>
+
 </html>

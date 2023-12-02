@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+nav{
+display: flex;
+flex-direction: row;
+
+
+}
+a{
+
+   padding: 5px;
+   border: solid 2px blue ;
+   text-decoration: none;
+   background-color: cadetblue;
+   color: white;
+   border-radius: 5px;
+}
+
+
+
+
+
+
+
+    </style>
+
+
+    
+<div>Ola senhores aqui será algo</div>
+<h1>Testando algumas coisas em js </h1>
+
+<div>Comandos para usar </div>
+
+<div id="texto">Ola amigos</div>
+
+<button onclick="alterartexto()">Traduzir</button>
+
+<button onclick="somar(23,8)">Calcular</button>
+
+<script>
+function alterartexto(){
+
+    document.getElementById("texto").innerHTML = "Home";
+
+
+}
+
+
+
+
+function somar(x, y){
+
+document.getElementById("texto").innerHTML = "A soma vale:" + (x+y);
+
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
