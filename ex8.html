@@ -6,23 +6,94 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ex 17</h1>
+    <style>
+body{
+margin: 0px;
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+section{
+background-color: rgb(183, 184, 176)    ;
+display: flex;
+justify-content: center;
+align-items: center;
+
+flex-direction: column;
+
+width: 40vw;
+height: 20vh;
+border-radius: 5px;
+
+margin: 40px;
+padding: 30px;
+
+}
+
+input{
+padding: 10px;
+border-radius: 5px;
+
+
+
+}
+.button{
+    background-color: rgb(84, 204, 84);
+    color: white; 
+    border-radius: 10px;  
+    margin: 10px;
+
+}
+h1{
+color: white;
+margin: 10px;
+display: block;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.restri{
+color: black;
+padding: 20px;
+background-color: white;
+border-radius: 5px;
+font-size: 15px;
+font-family: Arial, Helvetica, sans-serif;
+margin: 20px;
+
+
+}
+.title{
+color: white;
+font-size: 25px;
+font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+
+    </style>
+<div class="box">
+    <h1>Exemplo 17 - Lista de Números de Telefones</h1>
 
     <section>
-<input type="text" id="nome">
-<input type="number" name="num" id="num">
+        <input type="text" id="nome" placeholder="insira nome">
+        <input type="number" name="num" id="num" placeholder="Insira Telefone">
 
-<input type="button" value="Clique" onclick="numero()">
+        <input type="button" value="Clique" onclick="numero()" class="button">
 
 
     </section>
 
     <section>
-        <div>Lista de Números</div>
+        <div class="title">Lista de Números</div>
         <div id="area"></div>
 
     </section>
-
+</div>
     <script>
 function numero(){
 let nome = document.getElementById("nome");
