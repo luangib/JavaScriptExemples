@@ -3,131 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do List</title>
+    <title>To-do List - Luan Francisco</title>
 </head>
 <body>
     <style>
-        body{
-        margin: 0px;
-        
-        
-        
-        }
-        nav{
-        display: flex;
-        flex-direction: row;
-        gap: 5px;
-        background-color: rgb(0, 0, 0);
-        padding: 20px;
-        
-        
-        }
-        a{
-        
-           padding: 5px;
-           border: solid 2px rgb(255, 255, 255) ;
-           text-decoration: none;
-           background-color: rgb(255, 255, 255);
-           color: rgb(0, 0, 0);
-           border-radius: 5px;
-           font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        
-        a:hover{
-        
-        background-color: gray;
-        color: aliceblue;
-        
-        }
-        
-        div{
-        margin: auto;
-        width: 70%;
-        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-        font-size: 20px;
-        
-        
-        }
-        
-        section{
-            margin-top: 20px;
-            display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        
-        }
-        
-        h1{
-        font-family:Verdana, Geneva, Tahoma, sans-serif ;
-        font-size: 40px;
-        
-        
-        }
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-        #tarefa{
-            width: 300px;
-            height: 15px;
-            padding: 5px;
+body {
+  height: 100vh;
+ background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-            border-radius: 25px;
-            
+.container {
+  
+  padding: 30px 40px;
+  width: 40%;
+  min-width: 500px;
+}
 
-        }
+.new-task-container {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
 
-        #butom{
-           
-            width: 70px;
-            height: 30px;
-            padding: 5px;
- border-radius: 25px;
-        }
-        
-        
+.new-task-container input {
+  flex: 3;
+  font-size: 1rem;
+  border: 2px solid #d1d3d4;
+  border-radius: 5px;
+  padding: 12px;
+  font-weight: 500;
+}
+
+.new-task-container input:focus {
+  outline: none;
+  border-color: #41b883;
+}
+
+.new-task-button {
+  flex: 1;
+  border-radius: 5px;
+  font-weight: 500;
+  height: 100%;
+  font-size: 1rem;
+  border: none;
+  background-color: #41b883;
+  color: #fff;
+  padding: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.tasks-container {
+  background-color: #fff;
+  padding: 30px 20px;
+  margin-top: 60px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  margin-top: 6px;
+
+  
+}
+
+.task-item div {
+  background-color: #41b883;
+  color: #fff;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.task-item div:hover {
+  cursor: pointer;
+  background-color: rgb(192, 93, 93);
+}
+
+.task-item p {
+    padding: 5px 30px;
+    border: #d1d3d4 solid 1px;
+    border-radius: 5px;
+    color: grey;
+    cursor: pointer;
+}
+
+.task-item p:hover {
+    background-color: #41b883 ;
+    color: white;
+}
+
+/* Utilities */
+.error {
+  border: 2px solid red !important;
+}
+
+.error::placeholder {
+  color: red;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+
+
         
         
             </style>
-<nav>
-    <a href="ex1.html">Exemplo 1</a>
-    <a href="ex2.html">Exemplo 2</a>
-    <a href="ex3.html">Exemplo 3</a>
-    
-    </nav>
-
-    <section>
-<h1>To Do List</h1>
-<div>
-    <label for="tarefa">Adicionar Tarefa</label>
-    <input type="text" id="tarefa">
-    <input type="button" value="Clique" onclick="CriarTarefa()" id="butom">
-</div>
 
 
-<div id="area"></div>
-
-
-    </section>
+    <div class="container">
+        <div class="new-task-container">
+          <input
+            type="text"
+            class="new-task-input"
+            placeholder="Tarefa para ser feita..."
+          />
+  
+          <button class="new-task-button">Adicionar</button>
+        </div>
+  
+        <div class="tasks-container"></div>
+      </div>
     
 <script>
-function CriarTarefa(){
-let tarefa = document.getElementById("tarefa");
-let area = document.getElementById("area");
 
-area.innerHTML = area.innerHTML+"<br>"+"<input type='checkbox' name='check' id='check' onclick='''>"+tarefa.value+"<br>";
-
-
-
-}
-
-function riscar(){
+const inputElement = document.querySelector(".new-task-input");
+const addTaskButton = document.querySelector(".new-task-button");
+const tasksContainer = document.querySelector(".tasks-container");
 
 
 
+//Parte da validação do Input(condição de erro = não ter conteudo)-----------------------------------------------------
+const validateInput = () => inputElement.value.trim().length > 0;
+
+// Parte referente a Criar as Tasks desejadas dentro da área -------------------------------------------------------------
+const handleAddTask = () => {
+    //primeiro é colocada em prática a validação e depois continua-se o processo de criar os elementos da task item
+  const inputIsValid = validateInput();
+
+  console.log(inputIsValid);
+
+  if (!inputIsValid) {
+    return inputElement.classList.add("error");
+  }
+
+  const taskItemContainer = document.createElement("div");
+  taskItemContainer.classList.add("task-item");
+
+  const taskContent = document.createElement("p");
+  taskContent.innerText = inputElement.value;
+
+  const deleteItem = document.createElement("div");
+  deleteItem.innerHTML ="Apagar";
 
 
+  taskContent.addEventListener("click", () => handleClick(taskContent));
+  //Evente listener responsabel pelo processo de risco da task
+
+ 
+
+  deleteItem.addEventListener("click", () => handleDeleteClick(taskItemContainer, taskContent));
+  //Evente listener responsável pelo processo de apagar
+
+  taskItemContainer.appendChild(taskContent);
+  taskItemContainer.appendChild(deleteItem);
+  tasksContainer.appendChild(taskItemContainer);
+
+  inputElement.value = "";
+  //Rtirando o texto da tarefa do Input
 
 
-}
+};
+
+
+// Parte Da Função de Riscar ------------------------------------------------------------------
+const handleClick = (taskContent) => {
+  const tasks = tasksContainer.childNodes;
+
+  for (const task of tasks) {
+    const currentTaskIsBeingClicked = task.firstChild.isSameNode(taskContent);
+
+    if (currentTaskIsBeingClicked) {
+      task.firstChild.classList.toggle("completed");
+    }
+  }
+
+ 
+};
+//Parte Do "Apagar" em que todo o item container daquela task é removido após o evento click -------------------------------------
+const handleDeleteClick = (taskItemContainer, taskContent) => {
+  const tasks = tasksContainer.childNodes;
+
+  for (const task of tasks) {
+    const currentTaskIsBeingClicked = task.firstChild.isSameNode(taskContent);
+
+    if (currentTaskIsBeingClicked) {
+      taskItemContainer.remove();
+    }
+  }
+
+
+};
+//Parte relacionada a remoção da classe que mostra a partir da cor vermelha o erro na validação ou seja ausencia de conteudo no input
+const handleInputChange = () => {
+  const inputIsValid = validateInput();
+
+  if (inputIsValid) {
+    return inputElement.classList.remove("error");
+  }
+};
+
+//todos os event listerner que vou precisar
+
+addTaskButton.addEventListener("click", () => handleAddTask());
+
+inputElement.addEventListener("change", () => handleInputChange());
 
 
 </script>
