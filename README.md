@@ -4,4 +4,4 @@ Esse repertóroio contém  a To-do List, trabalho pedido pelo professor, e os di
 
 Qualquer dúvida entrar em contato comigo.
 
-link= https://luangib.github.io/JavaScriptExemples/
+link= https://luangib.github.io/To-do-List-and-JavaScriptExamples/
